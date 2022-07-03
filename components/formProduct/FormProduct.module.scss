@@ -1,0 +1,26 @@
+.container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 400px);
+    grid-row-gap: $spacing-20px;
+    grid-column-gap: $spacing-20px;
+}
+
+.form_input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: $spacing-8px $spacing-24px;
+    border-radius: $spacing-8px;
+    line-height: $spacing-16px;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px -3px rgba(0, 0, 0, 0.5);
+    font-size: $spacing-16px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+
+    &::placeholder {
+        text-transform: capitalize;
+        font-weight: 800;
+    }
+}

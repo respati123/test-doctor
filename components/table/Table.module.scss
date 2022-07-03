@@ -1,0 +1,102 @@
+#table_custom {
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+    width: 100%;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+
+
+    thead {
+        background-color: #0aa94e;
+
+        thead>tr {
+            border-bottom: 1px solid black;
+        }
+
+        tr>th {
+            text-align: left;
+            padding: .7em .9em;
+        }
+
+        svg {
+            display: inline-block;
+            fill: currentColor;
+            flex-shrink: 0;
+            font-size: 12px;
+            height: 1em;
+            margin: 5px 0 0 5px;
+            transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            user-select: none;
+            width: 1em;
+        }
+    }
+
+    tbody {
+
+
+        td {
+            padding: .7em .9em;
+            text-align: left;
+            text-transform: capitalize;
+            white-space: pre-line;
+
+
+            span>span>svg {
+                height: clamp(0.4em, 50px, 0.7em);
+                width: clamp(0.4em, 50px, 0.7em);
+
+                @media (max-width: 1026px) {
+                    font-size: clamp(1.4em, 14vw, 1.7em);
+                    line-height: 2em;
+                    padding: 6px;
+                }
+
+                @media (max-width: 1024px) {
+                    font-size: 1.5em;
+                    line-height: 2em;
+                    padding: 6px;
+                }
+            }
+
+            img {
+                height: clamp(0.6em, 50px, 1em);
+                width: clamp(0.6em, 50px, 1em);
+            }
+
+            div>img {
+                height: clamp(0.4em, 50px, 0.7em);
+                width: clamp(0.4em, 50px, 0.7em);
+            }
+
+            .iconButton {
+                font-family: 'Lato-Medium';
+                font-size: 19px;
+                font-weight: 500;
+                padding: 0;
+                text-align: center;
+                text-transform: capitalize;
+                width: 25px;
+
+                .icon-text {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+
+    .td-tr-column-number {
+        max-width: clamp(20px, 25vw, 10px);
+        text-align: center;
+
+        @media (min-width: 600px) and (max-width: 1025px) {
+            max-width: 20px;
+            text-align: center;
+        }
+
+        span>span>svg {
+            height: clamp(0.4em, 50px, 0.7em);
+            width: clamp(0.4em, 50px, 0.7em);
+        }
+    }
+}

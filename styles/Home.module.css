@@ -114,3 +114,63 @@
     flex-direction: column;
   }
 }
+
+
+.execution {
+  display: grid;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  grid-template-columns: repeat(2, 50px);
+  grid-column-gap: 20px;
+}
+
+.execution .button_execution {
+  pointer-events: inherit;
+  text-align: center;
+  line-height: 20px;
+}
+
+.execution .button_execution:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.header_table {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_table input {
+  width: 500px;
+  border: none;
+  outline: none;
+  padding: 8px 24px;
+  border-radius: 8px;
+  line-height: 30px;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px -3px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.header_table input::placeholder {
+  text-transform: capitalize;
+  font-weight: 800;
+}
+
+.header_table .add_product {
+  border: none;
+  outline: none;
+  line-height: 30px;
+  box-shadow: 2px 2px 5px -3px rgba(0, 0, 0, 0.1);
+  background-color: #0aa94e;
+  border-radius: 6px;
+  padding: 2px 10px;
+  color: #fff;
+  cursor: pointer;
+
+}

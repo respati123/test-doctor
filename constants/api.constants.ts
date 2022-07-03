@@ -1,0 +1,6 @@
+export const API_REGISTER = 'api/register'
+export const API_LOGIN = 'api/auth/login'
+export const API_GET_PRODUCT = 'api/items'
+export const API_ADD_PRODUCT = 'api/item/add'
+export const API_UPDATE_PRODUCT = 'api/item/update'
+export const API_SEARCH_PRODUCT = 'api/item/search'
