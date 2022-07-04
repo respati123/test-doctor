@@ -1,3 +1,4 @@
+import { STORAGE_USER } from "constants/storage.constants"
 import { ProductBodyAdd, ProductBodyUpdate } from "data/datasource/API/entity/Product"
 import ProductAPIDataSourceImpl from "data/datasource/API/ProductAPIDataSourceImpl"
 import ProductRepositoryImpl from "data/repository/ProductRepositoryImpl"
@@ -9,6 +10,7 @@ import UpdateProduct from "domain/useCase/product/UpdateProduct"
 import { useFetch } from "hooks/useFetch"
 import { useMutation } from "hooks/useMutation"
 import { ChangeEvent, InputHTMLAttributes, useCallback, useEffect, useRef, useState } from "react"
+import { getStorage } from "utils/storage.helper"
 
 
 
@@ -131,6 +133,12 @@ const useHomeModel = () => {
     }, [productList])
 
 
+    const isAuthenticated = () => {
+        const store = getStorage(STORAGE_USER);
+        console.log("STORE", store)
+        return store;
+    }
+
     return {
         onSearch,
         productList,
@@ -147,6 +155,7 @@ const useHomeModel = () => {
         onAddProduct,
         onUpdateProduct,
         onChangeForm,
+        isAuthenticated,
     }
 }
 

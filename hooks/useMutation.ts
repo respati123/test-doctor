@@ -1,11 +1,11 @@
-import { AxiosResponse } from "axios";
+import { AxiosError, AxiosResponse } from "axios";
 import { MutableRefObject, useCallback, useEffect, useState } from "react"
 
 
 export const useMutation: T = (instance: Function, ref: MutableRefObject<null | boolean>)  => {
 
     const [loading, setLoading] = useState<boolean>(false);
-    const [error, setError] = useState<unknown>();
+    const [error, setError] = useState<unknown | AxiosError>();
     const [data, setData] = useState<T>();
 
     useEffect(() => {
@@ -24,8 +24,8 @@ export const useMutation: T = (instance: Function, ref: MutableRefObject<null | 
             setData(response);
             setError(undefined)
             console.log("useFetch success", response);
-        }catch(error) {
-            setError(error.response.data);
+        }catch(error: any) {
+            setError(error && error?.response?.data);
             console.log("useFetch error", error)
         } finally {
             setLoading(false)

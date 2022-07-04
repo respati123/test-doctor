@@ -2,12 +2,13 @@ import Card from 'components/card'
 import FormProduct from 'components/formProduct'
 import Layout from 'components/layout'
 import Modal from 'components/modal/Modal'
-import SkeletonLoader from 'components/skeleton'
 import { Irules, Table } from 'components/table'
 import Product from 'domain/model/Product'
+import withAuth from 'hoc/withAuthorization'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 import useHomeModel from './Home.model'
 
@@ -30,9 +31,18 @@ const Home: NextPage = () => {
 onUpdateProduct,
 onChangeForm,
 onEdit,
-loadingDetail
+loadingDetail,
+isAuthenticated
   } = useHomeModel()
-  // console.log(useHomeModel())
+  
+  const router = useRouter()
+
+  useEffect(() => {
+    console.log("isAuthenticated", isAuthenticated())
+    if((isAuthenticated() === null)) {
+      router.push('/login')
+    }
+  }, [])
 
   const [search, setSearch] = useState<string>()
   const setupData = productList?.filter((item: Product) => {
@@ -50,7 +60,7 @@ loadingDetail
       <Layout>
         <Card>
           <div className={styles.header_table}>
-            <input type={'input'} placeholder="Search" onChange={(e) => setSearch(e.target.value)}/>
+            <input type={'input'} placeholder="Search By SKU" onChange={(e) => setSearch(e.target.value)}/>
             <button className={styles.add_product} onClick={toggleModal}>Add Product</button>
           </div>
           <Table 
@@ -81,5 +91,6 @@ loadingDetail
     </div>
   )
 }
+
 
 export default Home
