@@ -19,6 +19,7 @@ const Login = () => {
                     </div>  
                     <input type='submit' value="Login" className={styles.button_submit} />  
                     <button className={styles.button_register} onClick={onClickRegister}>Register</button>
+                    {error && <div dangerouslySetInnerHTML={{ __html: `<p>${(Object.values(error)).toString().replaceAll(",", "\n")}</p>`}}></div>}
                 </form>
             </Card>
         </div>
